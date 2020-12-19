@@ -1,0 +1,38 @@
+<%# _LEFT_CONTENTS %>
+<div class="col-md-3">
+<%# USER INFO %>
+  <h2>User info</h2>
+  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+  <table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+  <%# EDIT USER BUTTON%>
+    <div class="row">
+      <%= link_to "", edit_user_path(user), class: "fas fa-user-cog col-md-8.offset-md-1 btn btn-default glyphicon glyphicon-wrench" %>
+    </div>
+  <%# NEW BOOK %>
+  <h2>New book</h2>
+  <%= form_for(book_new) do |f| %>
+    <div class="field row">
+      <label for="book_title">Title</label>
+      <%= f.text_field :title, class:'col-md-8 offset-md-1 book_title' %>
+    </div>
+    <div class="field row">
+      <label for="book_opinion">Opinion</label>
+      <%= f.text_area :body, class:'col-md-8 offset-md-1 book_body' %>
+    </div>
+    <div class="actions row">
+      <%= f.submit 'Create Book', class:'btn btn-primary col-md-8 offset-md-1' %>
+    </div>
+  <% end %>
+</div>
